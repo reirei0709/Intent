@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    val readRequestCode: Int = 42
+    private val readRequestCode: Int = 42
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,8 +55,8 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         super.onActivityResult(requestCode, resultCode, resultData)
 
-        if(requestCode == readRequestCode&&requestCode == Activity.RESULT_OK){
-            resultData?.data?.also{uri ->
+        if(requestCode==readRequestCode&&resultCode == Activity.RESULT_OK){
+            val also = resultData?.data?.also { uri ->
                 imageView.setImageURI(uri)
 
             }
